@@ -1,2 +1,2 @@
-# fishhooks-pond
-Submission to ETRY LVL's Summer Game Jam!
+# my-fishhook
+Submission to ENTRY LVL's Summer Game Jam!
