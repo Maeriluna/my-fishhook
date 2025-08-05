@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://d2sraj1jjah5j"]
+
+[ext_resource type="Texture2D" uid="uid://bjhv6rrk11e54" path="res://assets/textures/prototype/colors/Cyan.png" id="1_0el1g"]
+[ext_resource type="Texture2D" uid="uid://clq1o0mvs1lbu" path="res://assets/textures/prototype/colors/Yellow.png" id="2_83kth"]
+[ext_resource type="Texture2D" uid="uid://ma1nepoa5e40" path="res://assets/textures/prototype/colors/Green.png" id="3_yngbv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_valud"]
+size = Vector2(96, 270)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n10so"]
+size = Vector2(384, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0el1g"]
+size = Vector2(384, 160)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ofcmh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83kth"]
+size = Vector2(264, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yngbv"]
+size = Vector2(384, 20)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ofcmh"]
+
+[node name="Tank" type="Node2D"]
+
+[node name="UI" type="StaticBody2D" parent="."]
+
+[node name="UIMockup" type="Sprite2D" parent="UI"]
+position = Vector2(48, 140)
+scale = Vector2(0.2, 1.03704)
+texture = ExtResource("2_83kth")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI"]
+position = Vector2(48, 135)
+shape = SubResource("RectangleShape2D_valud")
+
+[node name="TankLand" type="Area2D" parent="."]
+
+[node name="TankLandSprite" type="Sprite2D" parent="TankLand"]
+position = Vector2(288, 56)
+scale = Vector2(0.8, 0.414815)
+texture = ExtResource("3_yngbv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TankLand"]
+position = Vector2(288, 56)
+shape = SubResource("RectangleShape2D_n10so")
+
+[node name="TankWater" type="Area2D" parent="."]
+
+[node name="TankWaterSprite" type="Sprite2D" parent="TankWater"]
+position = Vector2(288, 191)
+scale = Vector2(0.8, 0.592593)
+texture = ExtResource("1_0el1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TankWater"]
+position = Vector2(288, 191)
+shape = SubResource("RectangleShape2D_0el1g")
+
+[node name="TankFloor1" type="StaticBody2D" parent="."]
+
+[node name="TankFloorMockup" type="Sprite2D" parent="TankFloor1"]
+position = Vector2(96, 104)
+scale = Vector2(264, 24)
+texture = SubResource("CanvasTexture_ofcmh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TankFloor1"]
+position = Vector2(228, 116)
+shape = SubResource("RectangleShape2D_83kth")
+
+[node name="TankFloor2" type="StaticBody2D" parent="."]
+
+[node name="TankFloorMockup2" type="Sprite2D" parent="TankFloor2"]
+position = Vector2(96, 264)
+scale = Vector2(384, 24)
+texture = SubResource("CanvasTexture_ofcmh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TankFloor2"]
+position = Vector2(288, 274)
+shape = SubResource("RectangleShape2D_yngbv")
+
+[node name="WorldBoundary1" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary1"]
+position = Vector2(262, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_ofcmh")
+
+[node name="WorldBoundary2" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary2"]
+position = Vector2(480, 128)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_ofcmh")
